@@ -2,6 +2,9 @@
 #-- Project file C:\lscc\iCEcube2.2020.12\sbt_backend\Projects\flip_flop\flip_flop_syn.prj
 #project files
 
+add_file -verilog -lib work "flip_flop_Implmnt/src/flip_flop.v" 
+add_file -verilog -lib work "flip_flop_Implmnt/src/debounce_switch.v" 
+add_file -constraint -lib work "../../../../../Users/Ren/Downloads/Go_Board_Clock_Constraint.sdc"
 #implementation: "flip_flop_Implmnt"
 impl -add flip_flop_Implmnt -type fpga
 
@@ -51,5 +54,5 @@ set_option -write_apr_constraint 1
 project -result_format "edif"
 project -result_file ./flip_flop_Implmnt/flip_flop.edf
 project -log_file "./flip_flop_Implmnt/flip_flop.srr"
-impl -active "flip_flop_Implmnt"
+impl -active flip_flop_Implmnt
 project -run synthesis -clean
